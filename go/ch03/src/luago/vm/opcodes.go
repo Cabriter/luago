@@ -31,7 +31,7 @@ const (
 
 type opcode struct {
 	testFlag byte		//operator is a test (next instruction must be a jump)
-	argBMode byte		//instruction set register a
+	setAFlag byte		//instruction set register a
 	argBMode byte		//B arg mode
 	argCMode byte		//C arg mode
 	opMode 	 byte		//op mode

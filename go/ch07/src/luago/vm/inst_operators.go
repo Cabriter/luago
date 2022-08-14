@@ -77,7 +77,7 @@ func concat(i Instruction, vm LuaVM) {
 	a += 1;
 	b += 1;
 	c += 1
-	n := c - b - 1
+	n := c - b + 1
 	vm.CheckStack(n)
 	for i := b; i <= c; i++ {
 		vm.PushValue(i)

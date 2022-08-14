@@ -8,8 +8,8 @@ type luaTable struct{
   _map map[luaValue]luaValue
 }
 
-func newLuaTabel(nArr , nRec int) *luaTable{
-  t := &luaTable
+func newLuaTable(nArr , nRec int) *luaTable{
+  t := &luaTable{}
   if nArr > 0 {
     t.arr = make([]luaValue,0,nArr)
   }
@@ -61,7 +61,7 @@ func (self *luaTable) put(key, val luaValue) {
     if self._map == nil {
       self._map = make(map[luaValue]luaValue , 8)
     }
-    self._map = val
+    self._map[key] = val
   }else{
     delete(self._map,key)
   }
@@ -69,7 +69,7 @@ func (self *luaTable) put(key, val luaValue) {
 
 func _floatToIntger(key luaValue) luaValue{
   if f , ok := key.(float64); ok{
-    if i,ok := number.FloatToIntger(f); ok {
+    if i,ok := number.FloatToInteger(f); ok {
       return i
     }
   }
